@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.appsys.mapper.appversion.AppVersionMapper">
+	<select id="SelectByAppId" resultType="AppVersion">
+		SELECT v.*,
+		(SELECT
+		softwareName FROM app_info AS i WHERE v.appId=i.id) AS softwareName,
+		(SELECT valueName FROM data_dictionary AS d WHERE
+		v.publishStatus=d.valueId AND typeCode='PUBLISH_STATUS')
+		AS publishName
+		FROM app_version AS v
+		WHERE appId=#{appId}
+	</select>
+
+	<insert id="InsertAppVersion" parameterType="AppVersion"
+		keyProperty="id" useGeneratedKeys="true">
+		INSERT
+		app_version(appId,versionNo,versionInfo,publishStatus,downloadLink,
+		versionSize,createdBy,creationDate,modifyBy,modifyDate,apkLocPath,apkFileName)
+		VALUES(#{appId},#{versionNo},#{versionInfo},#{publishStatus},#{downloadLink},
+		#{versionSize},#{createdBy},#{creationDate},#{modifyBy},
+		#{modifyDate},#{apkLocPath},#{apkFileName})
+	</insert>
+
+	<select id="SelectById" resultType="AppVersion">
+		select * from app_version
+		where id=#{id}
+	</select>
+
+	<update id="AppVersionUpdate" parameterType="AppVersion">
+		update app_version set
+		appId=#{appId},
+		versionNo=#{versionNo},
+		versionInfo=#{versionInfo},
+		publishStatus=#{publishStatus},
+		downloadLink=#{downloadLink},
+		versionSize=#{versionSize},createdBy=#{createdBy},
+		creationDate=#{creationDate},modifyBy=#{modifyBy},
+		modifyDate=#{modifyDate},apkLocPath=#{apkLocPath},
+		apkFileName=#{apkFileName}
+		where id=#{id}
+	</update>
+	
+	<delete id="DeleteAppVersion" parameterType="Integer">
+	  delete from app_version 
+	  WHERE appId=#{appId} 
+	</delete>
+	
+	<update id="UpdatePic">
+	  	update app_version set
+		apkLocPath=null,
+		apkFileName=null,
+		downloadLink=null
+		where id=#{id}
+	</update>
+</mapper>
