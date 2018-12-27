@@ -79,7 +79,7 @@
 								<div class="x_content">
 									<br>
 									<form id="demo-form2" data-parsley-validate=""
-										action="${pageContext.request.contextPath}/dev/appinfo/appinfoUpdate"
+										action="${pageContext.request.contextPath}/back/ShenHe"
 										class="form-horizontal form-label-left" novalidate=""
 										method="post" enctype="multipart/form-data">
 										<div class="form-group">
@@ -87,7 +87,7 @@
 												for="first-name">软件名称<span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input type="hidden" value="${appinfo.id}" name="id" /> <input
+												<input type="hidden" value="${appinfo.id}" name="appinfoid" /> <input
 													type="text" id="first-name" placeholder="请输入软件名称"
 													class="form-control col-md-7 col-xs-12" name="softwareName"
 													value="${appinfo.softwareName}" readonly="readonly"> 
@@ -217,8 +217,9 @@
 										</div>
 										<div class="form-group">
 											<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+											     <input type="hidden" value="0" name="jude" id="changevalues"/>
 												<input type="submit" value="审核通过" class="btn btn-primary" />
-												<input type="submit" value="审核不通过" class="btn btn-primary" /> <input
+												<input type="submit" value="审核不通过" class="btn btn-primary" onclick="javascript:changvalue();"/> <input
 													type="button" value="返回" class="btn btn-success"
 													onclick="location.href='${pageContext.request.contextPath}/back/appinfo/backList'" />
 											</div>
@@ -247,10 +248,7 @@
 														<input type="text" id="first-name" required="required"
 															class="form-control col-md-7 col-xs-12"
 															placeholder="请输入版本号" name="versionNo"
-															value="${app.versionNo}" readonly="readonly"> <input type="hidden"
-															name="appId" value="${app.appId}" />
-															<input type="hidden"
-															name="id" value="${app.id}" />
+															value="${app.versionNo}" readonly="readonly"> 
 													</div>
 												</div>
 												<div class="form-group">
@@ -288,10 +286,9 @@
 												<div class="form-group">
 													<label class="control-label col-md-3 col-sm-3 col-xs-12">APK文件<span
 														class="required">*</span> </label>
-														
 													<div class="col-md-6 col-sm-6 col-xs-12">
 														${app.apkFileName}
-														<a href="javascript:deletefiles(${app.id})">删除</a>
+														<a href="${app.downloadLink}">下载</a>
 													</div>
 													
 												</div>
@@ -318,6 +315,12 @@
 
 	<script
 		src="${pageContext.request.contextPath}/statics/js/jquery.min.js"></script>
+		<script type="text/javascript">
+		  function changvalue(){
+		     $("#changevalues").val(1);
+		  }
+		
+		</script>
 	<!-- Bootstrap -->
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath}/statics/js/devUpdate.js"></script>

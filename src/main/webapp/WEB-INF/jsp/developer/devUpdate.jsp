@@ -91,7 +91,7 @@
 												<input type="hidden" value="${appinfo.id}" name="id" /> <input
 													type="text" id="first-name" placeholder="请输入软件名称"
 													class="form-control col-md-7 col-xs-12" name="softwareName"
-													value="${appinfo.softwareName}"> <input
+													value="${appinfo.softwareName}" required="required"> <input
 													type="hidden" value="0" name="appinfojude" />
 											</div>
 										</div>
@@ -104,7 +104,8 @@
 													placeholder="请输入APK名称"
 													onblur="javascript:checkedAPKNames();"
 													class="form-control col-md-7 col-xs-12"
-													value="${appinfo.APKName}">
+													value="${appinfo.APKName}"
+													required="required">
 											</div>
 										</div>
 										<div class="form-group">
@@ -115,7 +116,7 @@
 												<input id="middle-name"
 													class="form-control col-md-7 col-xs-12" type="text"
 													placeholder="请输入支持的ROM" name="supportROM"
-													value="${appinfo.supportROM}">
+													value="${appinfo.supportROM}" required="required">
 											</div>
 										</div>
 										<div class="form-group">
@@ -125,7 +126,7 @@
 												<input id="middle-name" placeholder="请输入软件支持的界面语言"
 													class="form-control col-md-7 col-xs-12" type="text"
 													name="interfaceLanguage"
-													value="${appinfo.interfaceLanguage}">
+													value="${appinfo.interfaceLanguage}" required="required">
 											</div>
 										</div>
 										<div class="form-group">
@@ -135,7 +136,7 @@
 												<input id="birthday" placeholder="请输入软件大小，单位为MB"
 													class="date-picker form-control col-md-7 col-xs-12"
 													name="softwareSize" type="number"
-													value="${appinfo.softwareSize}">
+													value="${appinfo.softwareSize}" required="required">
 											</div>
 										</div>
 
@@ -146,7 +147,7 @@
 											<div class="col-md-6 col-sm-6 col-xs-12">
 												<input id="middle-name" placeholder="请输入下载次数"
 													class="form-control col-md-7 col-xs-12" type="number"
-													name="downloads" value="${appinfo.downloads}">
+													name="downloads" value="${appinfo.downloads}" required="required">
 											</div>
 										</div>
 										<div class="form-group">

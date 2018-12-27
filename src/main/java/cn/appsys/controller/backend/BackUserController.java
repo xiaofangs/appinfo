@@ -100,7 +100,7 @@ public class BackUserController {
 	@RequestMapping("/loginout")
 	public String LoginOut(HttpSession session){
 		session.removeAttribute("backendUser");
-		return "redirect:back/login";
+		return "redirect:/index.jsp";
 	}
 	
 	@RequestMapping("/AppShenHe")
@@ -110,6 +110,22 @@ public class BackUserController {
 		request.setAttribute("app", app);
 		request.setAttribute("appinfo",appinfo);
 		return "/backend/backShenHe";
+	}
+	
+	@RequestMapping("/ShenHe")
+	public String ShenHeApp(Integer appinfoid,Integer jude,HttpServletRequest request){
+		AppInfo appinfo=appInfoService.VeiwAppInfo(appinfoid);
+		AppVersion app = appVersionService.SelectById(appinfo.getVersionId());
+		if(jude==0){
+			appinfo.setStatus(2);
+			app.setPublishStatus(2);
+		}else{
+			appinfo.setStatus(3);
+			app.setPublishStatus(3);
+		}
+		appInfoService.UpdateAppInfo(appinfo);
+		appVersionService.AppVersionUpdate(app);
+		return "redirect:/back/appinfo/backList";
 	}
 	
 	

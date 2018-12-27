@@ -157,7 +157,7 @@
 													<div class="col-md-6 col-sm-6 col-xs-12"
 													<c:if test="${app.apkLocPath==null}">style="display: none;"</c:if>>
 														${app.apkFileName}
-														<a href="${pageContext.request.contextPath}/dev/appversion/uploadsfiles">下载</a>
+														<a href="${app.apkLocPath}">下载</a>
 														<a href="javascript:deletefiles(${app.id})">删除</a>
 													</div>
 													<div class="col-md-6 col-sm-6 col-xs-12"

@@ -17,8 +17,10 @@ public class DevUserServiceImpl implements DevUserService {
 	public DevUser getLoginUser(String devCode, String password) {
 		DevUser devUser=null;
 		devUser=devUserMapper.getLoginUser(devCode);
+		if(devUser!=null){
 		if(!devUser.getDevPassword().equals(password)){
 			devUser=null;
+		}
 		}
 		return devUser;
 	}

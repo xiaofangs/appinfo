@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import cn.appsys.pojo.DevUser;
 import cn.appsys.service.developer.DevUserService;
@@ -40,7 +41,7 @@ public class DevUserController {
 	@RequestMapping("/loginout")
 	public String LoginOut(HttpSession session){
 		session.removeAttribute("devUser");
-		return "redirect:dev/login";
+		return "redirect:/index.jsp";
 	}
 	
 

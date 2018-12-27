@@ -89,7 +89,9 @@
 											</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
 												<input type="text" id="first-name" placeholder="请输入软件名称"
-													class="form-control col-md-7 col-xs-12" name="softwareName">
+													class="form-control col-md-7 col-xs-12" 
+													required="required"
+													name="softwareName">
 											</div>
 										</div>
 										<div class="form-group">
@@ -99,7 +101,8 @@
 											<div class="col-md-6 col-sm-6 col-xs-12">
 												<input type="text" id="APKName" name="APKName"
 													placeholder="请输入APK名称" onblur="javascript:checkedAPKNames();"
-													class="form-control col-md-7 col-xs-12">
+													class="form-control col-md-7 col-xs-12"
+													required="required"/>
 											</div>
 										</div>
 										<div class="form-group">
@@ -109,7 +112,8 @@
 											<div class="col-md-6 col-sm-6 col-xs-12">
 												<input id="middle-name"
 													class="form-control col-md-7 col-xs-12" type="text"
-													placeholder="请输入支持的ROM" name="supportROM">
+													placeholder="请输入支持的ROM" name="supportROM"
+													required="required">
 											</div>
 										</div>
 										<div class="form-group">
@@ -118,7 +122,8 @@
 											<div class="col-md-6 col-sm-6 col-xs-12">
 												<input id="middle-name" placeholder="请输入软件支持的界面语言"
 													class="form-control col-md-7 col-xs-12" type="text"
-													name="interfaceLanguage">
+													name="interfaceLanguage"
+													required="required">
 											</div>
 										</div>
 										<div class="form-group">
@@ -127,7 +132,8 @@
 											<div class="col-md-6 col-sm-6 col-xs-12">
 												<input id="birthday" placeholder="请输入软件大小，单位为MB"
 													class="date-picker form-control col-md-7 col-xs-12"
-													name="softwareSize" type="number">
+													name="softwareSize" type="number"
+													required="required">
 											</div>
 										</div>
 
@@ -138,7 +144,8 @@
 											<div class="col-md-6 col-sm-6 col-xs-12">
 												<input id="middle-name" placeholder="请输入下载次数"
 													class="form-control col-md-7 col-xs-12" type="number"
-													name="downloads">
+													name="downloads"
+													required="required">
 											</div>
 										</div>
 										<div class="form-group">
@@ -148,7 +155,7 @@
 											<div class="col-md-6 col-sm-6 col-xs-12">
 												<select
 													class="form-control col-md-7 col-xs-12"
-													name="flatformId" id="flatformIds" >
+													name="flatformId" id="flatformIds">
 												   <option value="">--请选择--</option>
 												</select>
 											</div>
